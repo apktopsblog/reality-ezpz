@@ -338,7 +338,7 @@ function build_config {
     return 0
   fi
   config[server_ip]=$(ip route get 1.1.1.1 | grep -oP '(?<=src )(\d{1,3}\.){3}\d{1,3}')
-  config[public_ip]=$(curl -fsSL --ipv4 http://ifconfig.io)
+  config[public_ip]=$(curl -fsSL --ipv4 https://ifconfig.io)
   if [[ ! ${config[server]} =~ $domain_regex ]]; then
     config[server]="${config[public_ip]}"
   fi
